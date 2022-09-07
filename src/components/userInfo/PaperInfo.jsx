@@ -1,7 +1,8 @@
 import React from 'react';
 import "../../styles/small_queries.css";
 import { Paper, Stack, Typography } from "@mui/material";
-function PaperInfo({ data: { public_repos, followers, following } }) {
+
+const PaperInfo = ({ data: { public_repos, followers, following } }) => {
       return (
             <>
                   <Paper elevation={3} mt={4} className="paper_info-repo" xs={{ width: "100%" }}>

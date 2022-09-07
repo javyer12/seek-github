@@ -1,4 +1,4 @@
-import { urlFetch } from '../constant/index.js';
+import { urlFetch } from '../constant/index';
 
 const gettingUser = async (githubUser) => {
         let payload;

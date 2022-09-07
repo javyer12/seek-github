@@ -8,7 +8,7 @@ import Localization from "../userInfo/Localization";
 
 
 function UserCard(props) {
-      const { data } = props
+      const { data } = props;
       const { avatar_url, login } = data;
 
       return (

@@ -9,6 +9,7 @@ const stack = {
 const textField = {
         width: '100%',
 }
+
 export default function Searcher({ inputUser, setInputUser }) {
         const [ valueInput, setValueInput ] = useState(" ")
         const onSearchValue = (e) => {
