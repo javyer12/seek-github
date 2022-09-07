@@ -8,7 +8,6 @@
     "start": "webpack serve --mode development",
     "build": "react-scripts build"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
