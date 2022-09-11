@@ -38,7 +38,6 @@ const App = () => {
         const [ data, setData ] = useState('');
         const [ fetchMsg, setFetchMsg ] = useState();
         // const [ userStates, setUserStates ] = useState('user')
-
         const ERROR = (
                 <Stack sx={fetMsg} spacing={2}>
                         <Alert severity="error">
@@ -57,7 +56,7 @@ const App = () => {
                 </Stack>
         );
 
-        useEffect(() => {
+        useEffect(async () => {
                 (async () => {
                         try {
                                 const res = await gettingUser(inputUser);
@@ -71,8 +70,8 @@ const App = () => {
                                 setFetchMsg(SUCC);
                                 return setData(res);
                         } catch (err) {
-                                console.log("error in useEffect ", err.message);
                                 setFetchMsg(ERROR);
+                                console.log("error in useEffect ", err.message);
                         }
                 })();
         }, [ inputUser ]);

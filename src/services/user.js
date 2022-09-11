@@ -1,9 +1,9 @@
 import { urlFetch } from '../constant/index';
 
-const gettingUser = async (githubUser) => {
+const gettingUser = async userHub => {
         let payload;
         try {
-                const response = await fetch(`${urlFetch}${githubUser}`, {
+                const response = await fetch(`${urlFetch}${userHub}`, {
                         method: 'GET',
                 });
                 payload = response.json()
