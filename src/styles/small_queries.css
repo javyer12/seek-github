@@ -27,6 +27,9 @@
             margin: 5% -1% 0 -2% !important;
             width: 70vw !important;
       }
+      .tg {
+            font-size: 15px !important;
+      }
       .link_text {
             color: #45ac42;
       }

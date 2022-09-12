@@ -10,16 +10,16 @@ const PaperInfo = ({ data: { public_repos, followers, following } }) => {
                               sx={{ justifyContent: "space-evenly", margin: "5%" }}
                         >
                               <Stack sx={{ justifyContent: "space-evenly" }} >
-                                    <Typography variant='h5' >Repos</Typography>
-                                    <Typography variant='h6' align="center">{public_repos}</Typography>
+                                    <Typography className="tg" variant='h5' >Repos</Typography>
+                                    <Typography className="tg" variant='h6' align="center">{public_repos}</Typography>
                               </Stack>
                               <Stack sx={{ justifyContent: "space-evenly" }}>
-                                    <Typography variant='h5' >Followers</Typography>
-                                    <Typography variant='h6' align="center">{followers}</Typography>
+                                    <Typography className="tg" variant='h5' >Followers</Typography>
+                                    <Typography className="tg" variant='h6' align="center">{followers}</Typography>
                               </Stack>
                               <Stack sx={{ justifyContent: "space-evenly" }} >
-                                    <Typography variant='h5'>Followings</Typography>
-                                    <Typography variant='h6' align="center">{following}</Typography>
+                                    <Typography className="tg" variant='h5'>Followings</Typography>
+                                    <Typography className="tg" variant='h6' align="center">{following}</Typography>
                               </Stack>
                         </Stack>
                   </Paper>

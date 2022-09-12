@@ -57,23 +57,23 @@ const App = () => {
         );
 
         useEffect(async () => {
-                (async () => {
-                        try {
-                                const res = await gettingUser(inputUser);
-                                if (inputUser === "octocat") {
-                                        localStorage.setItem("octocat", JSON.stringify(res));
-                                }
-                                if (res.message === "Not Found") {
-                                        const octocat = JSON.parse(localStorage.getItem("octocat"));
-                                        return setData(octocat);
-                                }
-                                setFetchMsg(SUCC);
-                                return setData(res);
-                        } catch (err) {
-                                setFetchMsg(ERROR);
-                                console.log("error in useEffect ", err.message);
+                // (async () => {
+                try {
+                        const res = await gettingUser(inputUser);
+                        if (inputUser === "octocat") {
+                                localStorage.setItem("octocat", JSON.stringify(res));
                         }
-                })();
+                        if (res.message === "Not Found") {
+                                const octocat = JSON.parse(localStorage.getItem("octocat"));
+                                return setData(octocat);
+                        }
+                        setFetchMsg(SUCC);
+                        return setData(res);
+                } catch (err) {
+                        setFetchMsg(ERROR);
+                        console.log("error in useEffect ", err.message);
+                }
+                // })();
         }, [ inputUser ]);
         //en el array podemos pasarle un valor queeste escuchando,
         setTimeout(() => {
