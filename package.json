@@ -1,15 +1,17 @@
 {
-  "name": "mui",
+  "name": "github",
   "version": "1.0.0",
+  "homepage": "https://javyer12.github.io/seek-github",
   "description": "proyect to look for user on github",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development",
+    "deploy": "gh-pages -d public",
     "build": "react-scripts build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Francisco Murillo",
   "license": "ISC",
   "dependencies": {
     "@emotion/react": "11.8.1",
@@ -28,7 +30,7 @@
     "@babel/plugin-transform-runtime": "7.17.0",
     "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
-    "babel-eslint": "10.1.0",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "8.2.3",
     "css-loader": "^6.7.1",
     "eslint": "8.10.0",
@@ -39,6 +41,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.29.3",
     "file-loader": "6.2.0",
+    "gh-pages": "^4.0.0",
     "html-loader": "3.1.0",
     "html-webpack-plugin": "5.5.0",
     "mini-css-extract-plugin": "2.6.0",
