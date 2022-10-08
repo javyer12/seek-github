@@ -1,0 +1,36 @@
+@media screen and (max-width: 768px) {
+      .paper {
+            width: 90% !important
+      }
+      .container {
+            width: 90% !important;
+      }
+      .info_section {
+            display: grid !important;
+            grid-template-columns: 1fr;
+            width: 90vw !important;
+            margin: auto;
+      }
+      .avatar {
+            margin-left: 25vw !important;
+      }
+
+      /* //////////////////////////////////////////////////////////////////////////////// MainInfo///////////////////////////////// */
+      .main_info {
+            justify-content: space-between;
+      }
+      .no_user{
+            text-align: right;
+      }
+       /* //////////////////////////////////////////////////////////////////////////////// Paper Info///////////////////////////////// */
+      .paper_info-repo {
+            margin: 5% -1% 0 -2% !important;
+            width: 70vw !important;
+      }
+      .tg {
+            font-size: 15px !important;
+      }
+      .link_text {
+            color: #45ac42;
+      }
+}
