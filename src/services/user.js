@@ -8,8 +8,7 @@ const gettingUser = async userHub => {
                 });
                 payload = response.json()
         } catch (error) {
-                alert('Something went wrong fetching the Github user!!');
-                console.log(error.message)
+                throw Error(error);
         }
         return payload;
 }

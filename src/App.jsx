@@ -4,9 +4,10 @@ import { Container, Paper } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import AlertTitle from "@mui/material/AlertTitle";
-import Search from "./components/searcher/index.jsx";
+import Search from "./components/searcher/index";
 import UserCard from "./components/userCard/index";
-import gettingUser from "./services/user.js";
+import gettingUser from "./services/user";
+
 const container = {
         background: "whitesmoke",
         width: "70vw",
@@ -37,7 +38,7 @@ const App = () => {
         const [ inputUser, setInputUser ] = useState("octocat");
         const [ data, setData ] = useState('');
         const [ fetchMsg, setFetchMsg ] = useState();
-        // const [ userStates, setUserStates ] = useState('user')
+
         const ERROR = (
                 <Stack sx={fetMsg} spacing={2}>
                         <Alert severity="error">
@@ -56,40 +57,38 @@ const App = () => {
                 </Stack>
         );
 
-        useEffect(async () => {
-                // (async () => {
-                try {
-                        const res = await gettingUser(inputUser);
-                        if (inputUser === "octocat") {
-                                localStorage.setItem("octocat", JSON.stringify(res));
+        useEffect(() => {
+
+                async function fetchBusinesses() {
+                        try {
+                                const res = await gettingUser(inputUser);
+                                if (inputUser === "octocat") {
+                                        localStorage.setItem("octocat", JSON.stringify(res));
+                                }
+                                if (res.message === "Not Found") {
+                                        const octocat = JSON.parse(localStorage.getItem("octocat"));
+                                        return setData(octocat);
+                                }
+                                setFetchMsg(SUCC);
+                                return setData(res);
+                        } catch (err) {
+                                setFetchMsg(ERROR);
                         }
-                        if (res.message === "Not Found") {
-                                const octocat = JSON.parse(localStorage.getItem("octocat"));
-                                return setData(octocat);
-                        }
-                        setFetchMsg(SUCC);
-                        return setData(res);
-                } catch (err) {
-                        setFetchMsg(ERROR);
-                        console.log("error in useEffect ", err.message);
                 }
-                // })();
+                fetchBusinesses()
         }, [ inputUser ]);
-        //en el array podemos pasarle un valor queeste escuchando,
         setTimeout(() => {
                 setFetchMsg(" ");
         }, 5000);
         return (
-                <>
-                        <Paper sx={paper} elevation={3} className="paper">
-                                {fetchMsg}
-                                <Container sx={container} className="container">
-                                        <Search inputUser={inputUser} setInputUser={setInputUser} />
-                                        <UserCard data={data} />
-                                </Container>
-                        </Paper>
-                </>
+                <Paper sx={paper} elevation={3} className="paper">
+                        {fetchMsg}
+                        <Container sx={container} className="container">
+                                <Search inputUser={inputUser} setInputUser={setInputUser} />
+                                <UserCard data={data} />
+                        </Container>
+                </Paper>
         );
 };
 export default App;
-//f9f9f9
+// f9f9f9
