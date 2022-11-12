@@ -7,9 +7,8 @@ import PaperInfo from "../userInfo/PaperInfo";
 import Localization from "../userInfo/Localization";
 
 
-function UserCard(props) {
-      const { data } = props;
-      const { avatar_url, login } = data;
+const UserCard = ({ data }) => {
+      const { avatarUrl, login } = data;
 
       return (
             <Grid
@@ -26,7 +25,7 @@ function UserCard(props) {
                               className="avatar"
                               component="img"
                               alt={login}
-                              image={avatar_url}
+                              image={avatarUrl}
                               sx={{
                                     borderRadius: "50%",
                                     marginLeft: "2%",

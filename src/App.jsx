@@ -38,6 +38,21 @@ const App = () => {
         const [ inputUser, setInputUser ] = useState("octocat");
         const [ data, setData ] = useState('');
         const [ fetchMsg, setFetchMsg ] = useState();
+        const UserGithubContext = {
+                createdAt: data.created_at,
+                avatarUrl: data.avatar_url,
+                twitterUsername: data.twitter_username,
+                login: data.login,
+                bio: data.bio,
+                publicRepos: data.public_repos,
+                followers: data.followers,
+                following: data.following,
+                avatarUrl: data.avatar_url,
+                publicRepos: data.public_repos,
+                location: data.location,
+                company: data.company,
+                blog: data.blog,
+        };
 
         const ERROR = (
                 <Stack sx={fetMsg} spacing={2}>
@@ -84,8 +99,10 @@ const App = () => {
                 <Paper sx={paper} elevation={3} className="paper">
                         {fetchMsg}
                         <Container sx={container} className="container">
+                                {/* <UserContext.Provider value={{ UserGithubContext }}> */}
                                 <Search inputUser={inputUser} setInputUser={setInputUser} />
-                                <UserCard data={data} />
+                                <UserCard data={UserGithubContext} />
+                                {/* </UserContext.Provider> */}
                         </Container>
                 </Paper>
         );

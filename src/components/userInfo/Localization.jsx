@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import "../../styles/small_queries.css";
 import { Grid, Typography, Stack } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PublicIcon from '@mui/icons-material/Public';
 import WorkIcon from '@mui/icons-material/Work';
-function Localization({ data: { location, blog, twitter_username, company } }) {
 
+const Localization = ({ data }) => {
+      const { location, blog, twitterUsername, company } = data;
       return (
-            <>
+            <Fragment>
                   <Grid container
                         spacing={2}
                         sx={{
@@ -29,8 +31,8 @@ function Localization({ data: { location, blog, twitter_username, company } }) {
                               <Grid item >
                                     <Stack direction="row" spacing={2} sx={{ marginTop: "3%" }}>
                                           <TwitterIcon />
-                                          {twitter_username != null ?
-                                                <Typography className="link_text">{`@${twitter_username}`}</Typography>
+                                          {twitterUsername != null ?
+                                                <Typography className="link_text">{`@${twitterUsername}`}</Typography>
                                                 :
                                                 <Typography className="link_text">No User</Typography>
                                           }
@@ -61,8 +63,13 @@ function Localization({ data: { location, blog, twitter_username, company } }) {
                               </Grid>
                         </Grid>
                   </Grid>
-            </>
+            </Fragment>
       )
 }
-
+Localization.propTypes = {
+      location: PropTypes.string,
+      blog: PropTypes.string,
+      twitterUsername: PropTypes.string,
+      company: PropTypes.string,
+}
 export default Localization
